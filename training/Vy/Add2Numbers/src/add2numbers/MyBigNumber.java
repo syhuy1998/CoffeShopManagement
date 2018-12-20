@@ -1,5 +1,8 @@
 package add2numbers;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
 *@author T.T.Vy
 *this class contain a function name sum "use" for plus 2 numbers together
@@ -15,17 +18,38 @@ public class MyBigNumber {
     * @return result is sum of 2 .string of numbers.
     */
     
-    public String sum(final String s1 ,final String s2)
+    String StepResult = "";// in order to show step by step how this function work
+    public String showSumWork()
+    {
+        return StepResult;
+    }
+    
+    public String sum(final String s1 ,final String s2) throws Exception
     {
         int balance = 0; // = 1 if plus 2 number > 9 else 0.
+        int balance1 = 0;//remenber balance before
         int sumTwoChar;//save temporary value
+        int sumTwoCharWithoutbalance;//save temporary value
+        int sum;//save temporary value
         char value1; //use to keep single number.
         char value2; //use to keep single number.
         int maxLenght = s1.length() > s2.length() ? s1.length() : s2.length(); //return lenght's s1 else  lenght's s2.
         String result = "";// use to keep result of this function.
         
+        
+        //use Mancher to find unacceptable character in 2 strings
+        Pattern pattern = Pattern.compile("[!@#$%&*()_+=|<>?{}\\\\\\\\[\\\\\\\\]~]");
+        Matcher matcher1 = pattern.matcher(s1);
+        Matcher matcher2 = pattern.matcher(s2);
+        
+        
+                
         for (int i = 0 ; i < maxLenght ; i++) //run for o to the max lenght of strings.
         {
+            if (matcher1.find() || matcher2.find())
+            {
+              throw new Exception("unacceptable character in 2 strings");
+            }
             // 2 if check positions of every element in 2 string . then take values and be 0 if nothing.
             if (s1.length() - i - 1 < 0)
             {
@@ -42,12 +66,22 @@ public class MyBigNumber {
             {
                 value2 = s2.charAt(s2.length() - i - 1) ;//take values
             }
-            
+            sumTwoCharWithoutbalance = value1 - '0' + value2 - '0';
             sumTwoChar = value1 - '0' + value2 - '0' + balance;// add all value together
+            balance1 = balance;//save balance before which change new value
             balance = sumTwoChar / 10;//take balance
             result = "" + (sumTwoChar % 10) + result;//put next numbers to result
+            sum = sumTwoChar % 10;
+            StepResult = StepResult +"lay " + value1 + " cong " + value2 + " duoc " + sumTwoCharWithoutbalance + " " + balance1 + "nho"
+            + " ghi " + sum + " nho " + balance  + "\n";//show step by step how this function works
         }
-        
-        return result; // return the results
+        if ( balance == 1)
+        {
+            return "1" + result;// return the results with remaining
+        }
+        else
+        {
+            return result;// return the results without remaining
+        }
     }
 }

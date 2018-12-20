@@ -23,7 +23,7 @@ public class MyBigNumberJUnitTest {
     }
     
      @Test//test with 2 normal numbers
-     public void test_1() 
+     public void test_1() throws Exception 
      {
          MyBigNumber mybignumber = new MyBigNumber();
          String testString = mybignumber.sum("123", "321");
@@ -32,7 +32,7 @@ public class MyBigNumberJUnitTest {
      }
      
      @Test//test with 1 number is 0
-     public void test_2() 
+     public void test_2() throws Exception 
      {
          MyBigNumber mybignumber = new MyBigNumber();
          String testString = mybignumber.sum("0", "321");
@@ -41,7 +41,7 @@ public class MyBigNumberJUnitTest {
      }
      
      @Test//test with 2 numbers is 0
-     public void test_3() 
+     public void test_3() throws Exception 
      {
          MyBigNumber mybignumber = new MyBigNumber();
          String testString = mybignumber.sum("0", "0");
@@ -50,7 +50,7 @@ public class MyBigNumberJUnitTest {
      }
      
      @Test//test with 2 different lenght of numbers
-     public void test_4() 
+     public void test_4() throws Exception 
      {
          MyBigNumber mybignumber = new MyBigNumber();
          String testString = mybignumber.sum("555", "6665");
