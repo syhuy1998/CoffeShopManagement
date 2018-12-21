@@ -53,20 +53,28 @@ public class MyBigNumberJUnitTest {
          String expResult = "7220";
          assertEquals("pass",expResult,testString);
      }
-     
+     @Test(expected = Exception.class)//test with character
      public void test_5() throws Exception 
      {
          MyBigNumber mybignumber = new MyBigNumber();
          String testString = mybignumber.sum("n", "6665");
-         Exception exception = new Exception();
+         Exception exception = new Exception("found unacceptable character in 2 strings");
          assertEquals("pass",exception,testString);
      }
-     
+     @Test(expected = Exception.class)//test with special character
      public void test_6() throws Exception 
      {
          MyBigNumber mybignumber = new MyBigNumber();
          String testString = mybignumber.sum("n", "{}");
-         Exception exception = new Exception();
+         Exception exception = new Exception("found unacceptable character in 2 strings");
+         assertEquals("pass",exception,testString);
+     }
+     @Test(expected = Exception.class)//test with special character
+     public void test_7() throws Exception 
+     {
+         MyBigNumber mybignumber = new MyBigNumber();
+         String testString = mybignumber.sum("1", "-1");
+         Exception exception = new Exception("found unacceptable character in 2 strings");
          assertEquals("pass",exception,testString);
      }
 }
