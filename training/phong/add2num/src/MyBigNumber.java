@@ -78,10 +78,10 @@ public class MyBigNumber {
             result = tempNum + result;
             
         } 
-        
-        if (num1.equals("") || num2.equals("")) {
+          
+        if (num1.equals(null) || num2.equals(null)) {
             throw new NumberFormatException("So khong duoc bo trong!");
-        }        
+        }     
         
         iremember.sendMessage(step);       
         return result;
