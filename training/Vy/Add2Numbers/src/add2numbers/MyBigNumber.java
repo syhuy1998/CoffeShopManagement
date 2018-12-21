@@ -40,14 +40,14 @@ public class MyBigNumber {
         //use 2 loop for to find unacceptable character in 2 strings
         for (int i = 0 ; i < s1.length() ; i++)
         {
-            if (s1.charAt(i) > '9' && s1.charAt(i) < '/')
+            if (s1.charAt(i) > '9' || s1.charAt(i) < '/')
             {
                 throw new Exception("found unacceptable character in 2 strings");
             }
         }
         for (int i = 0 ; i < s2.length() ; i++)
         {
-            if (s2.charAt(i) > '9' && s2.charAt(i) < '/')
+            if (s2.charAt(i) > '9' || s2.charAt(i) < '/')
             {
                 throw new Exception("found unacceptable character in 2 strings");
             }
@@ -77,8 +77,8 @@ public class MyBigNumber {
             balance = sumTwoChar / 10;//take balance
             result = "" + (sumTwoChar % 10) + result;//put next numbers to result
             sum = sumTwoChar % 10;
-            StepResult = StepResult +"lay " + value1 + " cong " + value2 + " duoc " + sumTwoCharWithoutbalance + " " + balance1 + "nho"
-            + " ghi " + sum + " nho " + balance  + "\n";//show step by step how this function works
+            StepResult = StepResult +" take " + value1 + " plus with  " + value2 + " we get " + sumTwoCharWithoutbalance + " " + balance1 + " remenber before "
+            + " write " + sum + " remenber for next step " + balance  + "\n";//show step by step how this function works
         }
         if ( balance == 1)
         {
