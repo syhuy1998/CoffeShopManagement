@@ -37,19 +37,24 @@ public class MyBigNumber {
         String result = "";// use to keep result of this function.
         
         
-        //use Mancher to find unacceptable character in 2 strings
-        Pattern pattern = Pattern.compile("[!@#$%&*()_+=|<>?{}\\\\\\\\[\\\\\\\\]~]");
-        Matcher matcher1 = pattern.matcher(s1);
-        Matcher matcher2 = pattern.matcher(s2);
-        
-        
-                
+        //use 2 loop for to find unacceptable character in 2 strings
+        for (int i = 0 ; i < s1.length() ; i++)
+        {
+            if (s1.charAt(i) > '9' && s1.charAt(i) < '/')
+            {
+                throw new Exception("found unacceptable character in 2 strings");
+            }
+        }
+        for (int i = 0 ; i < s2.length() ; i++)
+        {
+            if (s2.charAt(i) > '9' && s2.charAt(i) < '/')
+            {
+                throw new Exception("found unacceptable character in 2 strings");
+            }
+        }
+            
         for (int i = 0 ; i < maxLenght ; i++) //run for o to the max lenght of strings.
         {
-            if (matcher1.find() || matcher2.find())
-            {
-              throw new Exception("unacceptable character in 2 strings");
-            }
             // 2 if check positions of every element in 2 string . then take values and be 0 if nothing.
             if (s1.length() - i - 1 < 0)
             {

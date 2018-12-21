@@ -5,10 +5,6 @@
  */
 
 import add2numbers.MyBigNumber;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -56,5 +52,21 @@ public class MyBigNumberJUnitTest {
          String testString = mybignumber.sum("555", "6665");
          String expResult = "7220";
          assertEquals("pass",expResult,testString);
+     }
+     
+     public void test_5() throws Exception 
+     {
+         MyBigNumber mybignumber = new MyBigNumber();
+         String testString = mybignumber.sum("n", "6665");
+         Exception exception = new Exception();
+         assertEquals("pass",exception,testString);
+     }
+     
+     public void test_6() throws Exception 
+     {
+         MyBigNumber mybignumber = new MyBigNumber();
+         String testString = mybignumber.sum("n", "{}");
+         Exception exception = new Exception();
+         assertEquals("pass",exception,testString);
      }
 }
