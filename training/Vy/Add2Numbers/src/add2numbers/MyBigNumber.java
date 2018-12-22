@@ -1,7 +1,5 @@
 package add2numbers;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
 *@author T.T.Vy
@@ -19,6 +17,7 @@ public class MyBigNumber {
     */
     
     String StepResult = "";// in order to show step by step how this function work
+    
     public String showSumWork()
     {
         return StepResult;
@@ -35,24 +34,10 @@ public class MyBigNumber {
         char value2; //use to keep single number.
         int maxLenght = s1.length() > s2.length() ? s1.length() : s2.length(); //return lenght's s1 else  lenght's s2.
         String result = "";// use to keep result of this function.
+        //CheckInput use for check exception before execute 2 strings.
+        CheckInput checkInput = new CheckInput();
+        checkInput.check(s1, s2);
         
-        
-        //use 2 loop for to find unacceptable character in 2 strings
-        for (int i = 0 ; i < s1.length() ; i++)
-        {
-            if (s1.charAt(i) > '9' || s1.charAt(i) < '/')
-            {
-                throw new Exception("found unacceptable character in 2 strings");
-            }
-        }
-        for (int i = 0 ; i < s2.length() ; i++)
-        {
-            if (s2.charAt(i) > '9' || s2.charAt(i) < '/')
-            {
-                throw new Exception("found unacceptable character in 2 strings");
-            }
-        }
-            
         for (int i = 0 ; i < maxLenght ; i++) //run for o to the max lenght of strings.
         {
             // 2 if check positions of every element in 2 string . then take values and be 0 if nothing.
@@ -71,15 +56,17 @@ public class MyBigNumber {
             {
                 value2 = s2.charAt(s2.length() - i - 1) ;//take values
             }
+            
             sumTwoCharWithoutbalance = value1 - '0' + value2 - '0';
             sumTwoChar = value1 - '0' + value2 - '0' + balance;// add all value together
             balance1 = balance;//save balance before which change new value
             balance = sumTwoChar / 10;//take balance
             result = "" + (sumTwoChar % 10) + result;//put next numbers to result
             sum = sumTwoChar % 10;
-            StepResult = StepResult +"lay " + value1 + " cong " + value2 + " duoc " + sumTwoCharWithoutbalance + " " + balance1 + "nho"
-            + " ghi " + sum + " nho " + balance  + "\n";//show step by step how this function works
+            StepResult = StepResult +"take " + value1 + " plus with " + value2 + " we get " + sumTwoCharWithoutbalance + " " + 0 + " remember before "
+            + " write " + sum + " remmember " + balance  + "\n";//show step by step how this function works
         }
+        
         if ( balance == 1)
         {
             return "1" + result;// return the results with remaining

@@ -77,4 +77,21 @@ public class MyBigNumberJUnitTest {
          Exception exception = new Exception("found unacceptable character in 2 strings");
          assertEquals("pass",exception,testString);
      }
+     public void test_8() throws Exception 
+     {
+         int a = 0 ;
+         int b = 0 ;
+         int result = 0;
+         MyBigNumber mybignumber = new MyBigNumber();
+         
+         for ( int i = 0 ; i < 1000000000 ; i++ )
+         {
+             a += 2;
+             b += 3;
+             result += 5;
+         }
+         
+         String testString = mybignumber.sum(a + "", b + "");
+         assertEquals("pass",result + "",testString);
+     }
 }
