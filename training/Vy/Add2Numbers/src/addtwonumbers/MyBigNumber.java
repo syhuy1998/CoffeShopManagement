@@ -1,12 +1,22 @@
-package add2numbers;
+package addtwonumbers;
 
+import add2numbers.CheckInput;
 
 /**
-*@author T.T.Vy
-*this class contain a function name sum "use" for plus 2 numbers together
-*/
+ * *@author T.T.Vy
+ * DesCription.
+ * this class contain a function name sum "use" for plus 2 numbers together
+ */
 
 public class MyBigNumber {
+    
+    String StepResult = "";// in order to show step by step how this function work
+    
+    public String showSumWork()
+    {
+        
+        return StepResult ;//return the string show how sum function work.
+    }
     
     /**
     * in order to add 2 numbers we need 2 values for this functions.
@@ -15,14 +25,6 @@ public class MyBigNumber {
     * @param s2 the second string of numbers.
     * @return result is sum of 2 .string of numbers.
     */
-    
-    String StepResult = "";// in order to show step by step how this function work
-    
-    public String showSumWork()
-    {
-        return StepResult;
-    }
-    
     public String sum(final String s1 ,final String s2) throws Exception
     {
         int balance = 0; // = 1 if plus 2 number > 9 else 0.
@@ -48,13 +50,12 @@ public class MyBigNumber {
             {
                 value1 = s1.charAt(s1.length() - i - 1);//take values
             }
-                        
             if (s2.length() - i - 1 < 0)
             {
                 value2 = '0';//be 0 if nothing
             } else
             {
-                value2 = s2.charAt(s2.length() - i - 1) ;//take values
+                value2 = s2.charAt(s2.length() - i - 1);//take values
             }
             
             sumTwoCharWithoutbalance = value1 - '0' + value2 - '0';
@@ -63,17 +64,19 @@ public class MyBigNumber {
             balance = sumTwoChar / 10;//take balance
             result = "" + (sumTwoChar % 10) + result;//put next numbers to result
             sum = sumTwoChar % 10;
-            StepResult = StepResult +"take " + value1 + " plus with " + value2 + " we get " + sumTwoCharWithoutbalance + " " + 0 + " remember before "
-            + " write " + sum + " remmember " + balance  + "\n";//show step by step how this function works
+            
+            StepResult = StepResult + " take " + value1 + " plus with " 
+                + value2 + " we get " + sumTwoCharWithoutbalance + balance1 
+                + " remember before write " + sum + " remmember " + balance  + "\n";
         }
-        
-        if ( balance == 1)
+        if (balance == 1)
         {
+            
             return "1" + result;// return the results with remaining
-        }
-        else
+        } else
         {
-            return result;// return the results without remaining
+            
+            return result;//return the results without remaining
         }
     }
 }
