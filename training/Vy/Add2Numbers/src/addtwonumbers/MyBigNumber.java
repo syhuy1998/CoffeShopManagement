@@ -10,12 +10,12 @@ import add2numbers.CheckInput;
 
 public class MyBigNumber {
     
-    String StepResult = "";// in order to show step by step how this function work
+    String stepResult = "";// in order to show step by step how this function work
     
     public String showSumWork()
     {
         
-        return StepResult ;//return the string show how sum function work.
+        return stepResult ;//return the string show how sum function work.
     }
     
     /**
@@ -65,7 +65,7 @@ public class MyBigNumber {
             result = "" + (sumTwoChar % 10) + result;//put next numbers to result
             sum = sumTwoChar % 10;
             
-            StepResult = StepResult + " take " + value1 + " plus with " 
+            stepResult = stepResult + " take " + value1 + " plus with " 
                 + value2 + " we get " + sumTwoCharWithoutbalance + balance1 
                 + " remember before write " + sum + " remmember " + balance  + "\n";
         }
