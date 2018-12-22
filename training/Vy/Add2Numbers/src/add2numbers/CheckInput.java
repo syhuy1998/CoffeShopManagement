@@ -20,6 +20,10 @@ public class CheckInput {
     public void check (String s1 , String s2) throws Exception 
     {
         //use 2 loop for to find unacceptable character in 2 strings
+        if (s1 == null || s2 == null)
+        {
+            throw new Exception("one of 2 edit text is empty");
+        }
         for (int i = 0 ; i < s1.length() ; i++)
         {
             if (s1.charAt(i) > '9' || s1.charAt(i) < '/')
