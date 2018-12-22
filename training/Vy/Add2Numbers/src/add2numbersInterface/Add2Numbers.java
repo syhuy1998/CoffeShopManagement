@@ -139,11 +139,13 @@ public class Add2Numbers extends javax.swing.JFrame {
        MyBigNumber mybignumber = new MyBigNumber();
         try {
             result = mybignumber.sum(firtsString, secondString);
+            jTextPane3.setText( mybignumber.showSumWork() + result );
         } catch (Exception ex) {
-            Logger.getLogger(Add2Numbers.class.getName()).log(Level.SEVERE, null, ex);
+            jTextPane3.setText("you have typed unacceptable input");
+            
         }
        
-       jTextPane3.setText( mybignumber.showSumWork() + result );
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
