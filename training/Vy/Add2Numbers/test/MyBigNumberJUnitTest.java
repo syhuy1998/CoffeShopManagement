@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import add2numbers.MyBigNumber;
+import addtwonumbers.MyBigNumber;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -93,5 +93,13 @@ public class MyBigNumberJUnitTest {
          
          String testString = mybignumber.sum(a + "", b + "");
          assertEquals("pass",result + "",testString);
+     }
+     
+     @Test//test with null
+     public void test_9() throws Exception 
+     {
+         MyBigNumber mybignumber = new MyBigNumber();
+         String testString = mybignumber.sum("", "311");
+         assertEquals("pass","311",testString);
      }
 }
