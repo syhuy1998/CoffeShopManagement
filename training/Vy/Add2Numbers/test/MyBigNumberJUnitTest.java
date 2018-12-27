@@ -102,4 +102,13 @@ public class MyBigNumberJUnitTest {
          String testString = mybignumber.sum("", "311");
          assertEquals("pass","311",testString);
      }
+	 
+	 @Test(expected = Exception.class)//test with null
+     public void test_7() throws Exception 
+     {
+         MyBigNumber mybignumber = new MyBigNumber();
+         String testString = mybignumber.sum("1",null);
+         Exception exception = new Exception("null");
+         assertEquals("pass",exception,testString);
+     }
 }

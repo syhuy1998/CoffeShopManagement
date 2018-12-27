@@ -9,7 +9,7 @@ package add2numbers;
  *
  * @author T.T.Vy
  */
-public class CheckInput {
+public class CheckingInput {
     /**
      * 
      * @param s1 string 1
