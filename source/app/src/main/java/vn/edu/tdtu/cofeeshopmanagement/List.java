@@ -43,8 +43,6 @@ public class List extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 break;
             default:
-
         }
-
     }
 }
